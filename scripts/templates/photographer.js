@@ -42,15 +42,39 @@ function photographerTemplate(data) {
     }
 
     function getPhotographerDom() {
-        //creation DOM
+        //création DOM
         const header = document.createElement("div");
-        const photographeCard = document.createElement("div");
         const img = document.createElement("img");
-        img.setAttribute("src", picture);
+        const aTagline = document.createElement("p");
+        const aPrice = document.createElement("p");
+        const h1 = document.createElement("h1");
+        const h2 = document.createElement("h2");
+        const button = document.getElementById("contact");
+        console.log();
 
-        header.appendChild(photographeCard);
+        //Affichage des éléments
         header.appendChild(img);
-        console.log("caca");
+        header.appendChild(h1);
+        header.appendChild(h2);
+        header.appendChild(aTagline);
+        header.appendChild(aPrice);
+        header.appendChild(button);
+
+        //Attributs des éléments
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
+        h1.setAttribute("aria-label", name);
+        h2.setAttribute("aria-label", city + ", " + country);
+        aTagline.setAttribute("aria-label", tagline);
+        aPrice.setAttribute("aria-label", price + "€/jour");
+        button.setAttribute("aria-label", "Contactez-moi");
+
+        //Texte afficher
+        h1.textContent = name;
+        aTagline.textContent = tagline;
+        aPrice.textContent = price + "€/jour";
+        h2.textContent = country + ", " + city;
+
         return header;
     }
     return { name, picture, city, country, tagline, price, portrait, getUserCardDOM, getPhotographerDom };
