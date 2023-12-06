@@ -1,12 +1,13 @@
 function mediaTemplate(folder, data) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
-    const MediaPicture = `assets/images/${folder}/${image}`;
+    const mediaPicture = `assets/images/${folder}/${image}`;
     const mediaVideo = `assets/images/${folder}/${video}`;
 
     function getVideoDom() {
         const video = document.createElement("video");
         const source = document.createElement("source");
         video.appendChild(source);
+        video.dataset.id = data.id;
         source.setAttribute("src", mediaVideo);
         source.setAttribute("type", "video/mp4");
         return video;
@@ -14,23 +15,28 @@ function mediaTemplate(folder, data) {
 
     function getPictureDom() {
         const img = document.createElement("img");
-        img.setAttribute("src", MediaPicture);
+        img.setAttribute("src", mediaPicture);
+        img.dataset.id = data.id;
         return img;
     }
 
-    function getLightboxDom() {
+    function getMediaDom() {
         if (data.image) {
-            return getPictureDom();
+            const pictureDom = getPictureDom();
+            pictureDom.setAttribute("class", "media_lightbox");
+            return pictureDom;
         } else {
-            return getVideoDom();
+            const videoDom = getVideoDom();
+            videoDom.setAttribute("class", "media_lightbox");
+            return videoDom;
         }
     }
 
-    function getMediaDom() {
+    function getMediaForPhotographerPortfolioDom() {
         const section = document.createElement("section");
         const lienLightbox = document.createElement("div");
         lienLightbox.addEventListener("click", () => {
-            openLightbox(id);
+            openLightbox(data);
         });
         const div = document.createElement("div");
         const p = document.createElement("p");
@@ -47,7 +53,7 @@ function mediaTemplate(folder, data) {
         divLike.appendChild(like);
         divLike.appendChild(imgLike);
 
-        const mediaDom = getLightboxDom();
+        const mediaDom = getMediaDom();
         lienLightbox.appendChild(mediaDom);
 
         p.textContent = title;
@@ -56,5 +62,15 @@ function mediaTemplate(folder, data) {
         return section;
     }
 
-    return { id, photographerId, title, image, likes, date, price, getMediaDom, getLightboxDom };
+    return {
+        id,
+        photographerId,
+        title,
+        image,
+        likes,
+        date,
+        price,
+        getMediaDom: getMediaForPhotographerPortfolioDom,
+        getLightboxDom: getMediaDom,
+    };
 }

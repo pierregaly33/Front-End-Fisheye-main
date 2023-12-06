@@ -101,3 +101,7 @@ article img {
 .container_lightbox img {
     width: 200px;
 }
+
+video {
+    width: 20px;
+}
