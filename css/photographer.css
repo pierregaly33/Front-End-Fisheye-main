@@ -78,3 +78,26 @@ form input {
 .photograph-pictures {
     width: 100%;
 }
+
+.photograph-header div {
+    display: flex;
+    flex-direction: row;
+}
+
+.photograph-header img {
+    width: 400px;
+}
+
+article img {
+    width: 400px;
+}
+
+.lightbox {
+    z-index: 1000;
+    position: relative;
+    background-color: white;
+}
+
+.container_lightbox img {
+    width: 200px;
+}
