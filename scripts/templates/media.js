@@ -40,18 +40,23 @@ function mediaTemplate(folder, data) {
         });
         const div = document.createElement("div");
         const p = document.createElement("p");
-        const divLike = document.createElement("div");
+        const headerLike = document.createElement("div");
         const like = document.createElement("p");
         const imgLike = document.createElement("img");
 
+        div.setAttribute("class", "card_media_footer");
+        p.setAttribute("class", "card_media_title");
+        lienLightbox.setAttribute("class", "pictures");
         lienLightbox.setAttribute("style", "cursor:pointer");
+        headerLike.setAttribute("class", "header_like");
+        like.setAttribute("class", "compteur_like");
 
         section.appendChild(lienLightbox);
         section.appendChild(div);
         div.appendChild(p);
-        div.appendChild(divLike);
-        divLike.appendChild(like);
-        divLike.appendChild(imgLike);
+        div.appendChild(headerLike);
+        headerLike.appendChild(like);
+        headerLike.appendChild(imgLike);
 
         const mediaDom = getMediaDom();
         lienLightbox.appendChild(mediaDom);

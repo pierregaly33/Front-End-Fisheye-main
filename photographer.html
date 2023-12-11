@@ -10,11 +10,6 @@
 </head>
 
 <body>
-  <header>
-    <a href="/">
-      <img src="assets/images/logo.png" class="logo" />
-    </a>
-  </header>
   <div class="lightbox" id="lightbox" style="display: none;">
     <div class="container_lightbox">
     </div>
@@ -24,9 +19,16 @@
       <img id="next" src="./assets/icons/next.svg" alt="image suivante">
     </div>
   </div>
+  <header>
+    <a href="/">
+      <img src="assets/images/logo.png" class="logo" />
+    </a>
+  </header>
   <main id="main">
     <div class="photograph-header">
-      <button class="contact_button" id="contact" onclick="displayModal()">Contactez-moi</button>
+      <div class="button_container">
+        <button class="contact_button" id="contact" onclick="displayModal()">Contactez-moi</button>
+      </div>
     </div>
   </main>
   <div id="contact_modal">

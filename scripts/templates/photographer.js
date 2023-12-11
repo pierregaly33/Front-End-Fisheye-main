@@ -25,9 +25,13 @@ function photographerTemplate(data) {
         //Attributs des éléments
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
+        h2.setAttribute("class", "nom_photographe");
         h2.setAttribute("aria-label", name);
+        h3.setAttribute("class", "ville_pays");
         h3.setAttribute("aria-label", city + ", " + country);
+        aTagline.setAttribute("class", "tagline");
         aTagline.setAttribute("aria-label", tagline);
+        aPrice.setAttribute("class", "price");
         aPrice.setAttribute("aria-label", price + "€/jour");
         lien.setAttribute("href", url);
         lien.setAttribute("aria-label", "lien vers la page du photographe" + " " + name);
@@ -50,24 +54,32 @@ function photographerTemplate(data) {
         const h1 = document.createElement("h1");
         const h2 = document.createElement("h2");
         const button = document.getElementById("contact");
+        const photo = document.createElement("div");
+        const photographHeader = document.querySelector(".photograph-header");
         console.log();
 
         //Affichage des éléments
-        header.appendChild(img);
+        photographHeader.appendChild(photo);
+        photo.appendChild(img);
         header.appendChild(h1);
         header.appendChild(h2);
         header.appendChild(aTagline);
         header.appendChild(aPrice);
-        header.appendChild(button);
 
         //Attributs des éléments
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
+        h1.setAttribute("class", "nom_fiche_photographer");
         h1.setAttribute("aria-label", name);
+        h2.setAttribute("class", "origine_fiche_photographer");
         h2.setAttribute("aria-label", city + ", " + country);
+        aTagline.setAttribute("class", "tagline_fiche_photographer");
         aTagline.setAttribute("aria-label", tagline);
+        aPrice.setAttribute("class", "prix_fiche_photographer");
         aPrice.setAttribute("aria-label", price + "€/jour");
         button.setAttribute("aria-label", "Contactez-moi");
+        photo.setAttribute("class", "photo_photographer");
+        header.setAttribute("class", "presentation_photographer");
 
         //Texte afficher
         h1.textContent = name;
