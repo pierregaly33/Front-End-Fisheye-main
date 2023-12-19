@@ -8,15 +8,15 @@ function displayModal() {
 async function getPhotographer() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-
+    // Récupere tous les photographes
     const photographersData = await fetch("../data/photographers.json").then((data) => data.json());
     const photographers = photographersData.photographers;
-
+    // Récupere le photographe demandé
     const photographer = photographers.find((photographer) => photographer.id == id);
     return photographer;
 }
 
-async function getMedias() {
+async function getMediasOfSelectedPhotographer() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
@@ -36,7 +36,7 @@ async function init() {
     const photographHeader = document.querySelector(".photograph-header");
     photographHeader.appendChild(photographCardDom);
 
-    const medias = await getMedias();
+    const medias = await getMediasOfSelectedPhotographer();
 
     const template = photographerMediaTemplate(photographer, medias);
 
@@ -47,6 +47,23 @@ async function init() {
     const lightboxDom = template.getMediaLightboxDom();
     const lightBoxContainer = document.querySelector(".container_lightbox");
     lightBoxContainer.appendChild(lightboxDom);
+
+    function calculTotalLikes(medias) {
+        total = 0;
+        for (let i = 0; i < medias.length; i++) {
+            let media = medias[i];
+            let likes = media.likes;
+            total = likes + total;
+        }
+        return total;
+    }
+    let totalLikes = calculTotalLikes(medias);
+
+    const nombresLikes = document.querySelector(".nombres_likes");
+    nombresLikes.innerText = totalLikes;
+
+    const prix = document.querySelector(".prix");
+    prix.innerText = photographer.price + "€/jour";
 }
 
 init();

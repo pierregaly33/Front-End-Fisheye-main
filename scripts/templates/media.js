@@ -84,6 +84,7 @@ function mediaTemplate(folder, data) {
         const prix = document.getElementById("prix");
 
         prix.textContent = price + "€/jour";
+        nombresLikes.textContent = somme;
     }
 
     return {
