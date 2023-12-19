@@ -5,6 +5,10 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin: 0 100px;
 }
 
@@ -19,6 +23,10 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.presentation_photographer {
+    margin-left: 40px;
 }
 
 .modal {
@@ -76,7 +84,6 @@ form input {
 }
 
 .button_container {
-    width: 20%;
     display: flex;
     align-items: center;
 }
@@ -88,27 +95,28 @@ form input {
 
 .photograph-pictures {
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
-.photograph-header {
-    display: flex;
-    flex-direction: row-reverse;
+.photograph-pictures section {
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .photo_photographer {
-    width: 45%;
     display: flex;
     align-items: center;
+    margin-right: 40px;
 }
 
 .photo_photographer img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-}
-
-.presentation_photographer {
-    width: 40%;
+    object-fit: cover;
 }
 
 .nom_fiche_photographer {
@@ -132,20 +140,15 @@ form input {
 
 }
 
-.photograph-pictures {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.photograph-pictures section {
-    width: 27%;
-    margin: auto;
-    margin-bottom: 20px;
-    margin-top: 40px;
-}
-
 .pictures img {
-    width: 350px;
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pictures video {
+    width: 400px;
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
@@ -153,6 +156,7 @@ form input {
 
 .card_media_footer {
     display: flex;
+    justify-content: space-between;
 }
 
 .header_like {
@@ -160,15 +164,16 @@ form input {
     align-items: center;
 }
 
-.card_media_footer p {
-    color: #901C1C;
-    width: 60%;
+.header_like img {
+    width: 21px;
+    height: 21px;
 }
 
 .card_media_title {
     margin: 0;
     font-weight: 400;
     font-size: 24px;
+    color: #901C1C;
 }
 
 .compteur_like {
@@ -195,6 +200,17 @@ form input {
 .container_lightbox img {
     width: 1050px;
     height: 900px;
+    object-fit: cover;
+}
+
+.container_lightbox video {
+    width: 1050px;
+    height: 900px;
+}
+
+.video {
+    width: 1050px;
+    height: 900px;
 }
 
 #previous {
@@ -218,8 +234,20 @@ form input {
     cursor: pointer;
 }
 
-video {
-    width: 350px;
-    height: 350px;
-    object-fit: clip;
+.prix_et_likes {
+    position: fixed;
+    right: 36px;
+    bottom: 0;
+}
+
+.pictures video::-webkit-media-controls {
+    display: none;
+}
+
+.trier {
+    margin-left: 100px;
+}
+
+.tri {
+    margin-top: 40px;
 }

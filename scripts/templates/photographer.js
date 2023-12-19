@@ -56,15 +56,17 @@ function photographerTemplate(data) {
         const button = document.getElementById("contact");
         const photo = document.createElement("div");
         const photographHeader = document.querySelector(".photograph-header");
+        const contactButton = document.querySelector(".button_container");
         console.log();
 
         //Affichage des éléments
         photographHeader.appendChild(photo);
-        photo.appendChild(img);
         header.appendChild(h1);
         header.appendChild(h2);
         header.appendChild(aTagline);
         header.appendChild(aPrice);
+        photographHeader.appendChild(contactButton);
+        photo.appendChild(img);
 
         //Attributs des éléments
         img.setAttribute("src", picture);
@@ -84,10 +86,20 @@ function photographerTemplate(data) {
         //Texte afficher
         h1.textContent = name;
         aTagline.textContent = tagline;
-        aPrice.textContent = price + "€/jour";
         h2.textContent = country + ", " + city;
 
         return header;
     }
-    return { name, picture, city, country, tagline, price, portrait, getUserCardDOM, getPhotographerDom };
+
+    return {
+        name,
+        picture,
+        city,
+        country,
+        tagline,
+        price,
+        portrait,
+        getUserCardDOM,
+        getPhotographerDom,
+    };
 }

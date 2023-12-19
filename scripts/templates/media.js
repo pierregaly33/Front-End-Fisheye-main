@@ -8,8 +8,10 @@ function mediaTemplate(folder, data) {
         const source = document.createElement("source");
         video.appendChild(source);
         video.dataset.id = data.id;
+        source.setAttribute("class", "video");
         source.setAttribute("src", mediaVideo);
         source.setAttribute("type", "video/mp4");
+        video.setAttribute("controls", "controls");
         return video;
     }
 
@@ -33,6 +35,7 @@ function mediaTemplate(folder, data) {
     }
 
     function getMediaForPhotographerPortfolioDom() {
+        const likesHeart = "assets/icons/likes.svg";
         const section = document.createElement("section");
         const lienLightbox = document.createElement("div");
         lienLightbox.addEventListener("click", () => {
@@ -50,6 +53,8 @@ function mediaTemplate(folder, data) {
         lienLightbox.setAttribute("style", "cursor:pointer");
         headerLike.setAttribute("class", "header_like");
         like.setAttribute("class", "compteur_like");
+        imgLike.setAttribute("src", likesHeart);
+        imgLike.setAttribute("style", "cursor:pointer");
 
         section.appendChild(lienLightbox);
         section.appendChild(div);
@@ -67,6 +72,20 @@ function mediaTemplate(folder, data) {
         return section;
     }
 
+    function getPrixEtLikesDom() {
+        let somme = 0;
+
+        for (let i = 0; i < likes.length; i++) {
+            somme += likes[i];
+        }
+        console.log(somme);
+
+        const nombresLikes = document.getElementById("nombres_likes");
+        const prix = document.getElementById("prix");
+
+        prix.textContent = price + "€/jour";
+    }
+
     return {
         id,
         photographerId,
@@ -77,5 +96,6 @@ function mediaTemplate(folder, data) {
         price,
         getMediaDom: getMediaForPhotographerPortfolioDom,
         getLightboxDom: getMediaDom,
+        getPrixEtLikesDom,
     };
 }
