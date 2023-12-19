@@ -29,6 +29,23 @@ async function getMediasOfSelectedPhotographer() {
     return mediaPhotographer;
 }
 
+function calculTotalLikes(medias) {
+    total = 0;
+    for (let i = 0; i < medias.length; i++) {
+        let media = medias[i];
+        let likes = media.likes;
+        total = likes + total;
+    }
+    return total;
+}
+
+let totalLikeNumber = 0;
+async function ajoutLikes() {
+    totalLikeNumber = totalLikeNumber + 1;
+    const nombresLikes = document.querySelector(".nombres_likes");
+    nombresLikes.innerText = totalLikeNumber;
+}
+
 async function init() {
     const photographer = await getPhotographer();
     const photographerModel = photographerTemplate(photographer);
@@ -48,19 +65,10 @@ async function init() {
     const lightBoxContainer = document.querySelector(".container_lightbox");
     lightBoxContainer.appendChild(lightboxDom);
 
-    function calculTotalLikes(medias) {
-        total = 0;
-        for (let i = 0; i < medias.length; i++) {
-            let media = medias[i];
-            let likes = media.likes;
-            total = likes + total;
-        }
-        return total;
-    }
-    let totalLikes = calculTotalLikes(medias);
+    totalLikeNumber = calculTotalLikes(medias);
 
     const nombresLikes = document.querySelector(".nombres_likes");
-    nombresLikes.innerText = totalLikes;
+    nombresLikes.innerText = totalLikeNumber;
 
     const prix = document.querySelector(".prix");
     prix.innerText = photographer.price + "€/jour";

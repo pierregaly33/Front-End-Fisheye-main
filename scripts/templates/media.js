@@ -69,22 +69,12 @@ function mediaTemplate(folder, data) {
         p.textContent = title;
         like.textContent = likes;
 
+        imgLike.addEventListener("click", () => {
+            ajoutLikes();
+            like.textContent = likes + 1;
+        });
+
         return section;
-    }
-
-    function getPrixEtLikesDom() {
-        let somme = 0;
-
-        for (let i = 0; i < likes.length; i++) {
-            somme += likes[i];
-        }
-        console.log(somme);
-
-        const nombresLikes = document.getElementById("nombres_likes");
-        const prix = document.getElementById("prix");
-
-        prix.textContent = price + "€/jour";
-        nombresLikes.textContent = somme;
     }
 
     return {
@@ -97,6 +87,5 @@ function mediaTemplate(folder, data) {
         price,
         getMediaDom: getMediaForPhotographerPortfolioDom,
         getLightboxDom: getMediaDom,
-        getPrixEtLikesDom,
     };
 }

@@ -178,6 +178,8 @@ form input {
 
 .compteur_like {
     margin: 0;
+    font-weight: 400px;
+    font-size: 16px;
 }
 
 .lightbox {
@@ -238,16 +240,47 @@ form input {
     position: fixed;
     right: 36px;
     bottom: 0;
+    background-color: #DB8876;
+    border-radius: 5px;
+    display: flex;
+    padding: 20px;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.main_likes {
+    display: flex;
+}
+
+.main_likes img {
+    filter: brightness(0);
+    margin-left: 5px;
+}
+
+.nombres_likes {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.prix {
+    font-weight: 500;
+    font-size: 24px;
 }
 
 .pictures video::-webkit-media-controls {
     display: none;
 }
 
-.trier {
+label {
     margin-left: 100px;
 }
 
 .tri {
     margin-top: 40px;
+    background-color: #901C1C;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
 }
