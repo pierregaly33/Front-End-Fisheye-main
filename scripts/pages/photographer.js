@@ -39,6 +39,7 @@ function calculTotalLikes(medias) {
     return total;
 }
 
+// Ajoute les likes au total des likes
 let totalLikeNumber = 0;
 async function ajoutLikes() {
     totalLikeNumber = totalLikeNumber + 1;
@@ -55,7 +56,7 @@ async function init() {
 
     const medias = await getMediasOfSelectedPhotographer();
 
-    const template = photographerMediaTemplate(photographer, medias);
+    const template = photographerMediasTemplate(photographer, medias);
 
     const mediaDom = template.getMediasDom();
     const mediaMain = document.querySelector(".photograph-pictures");

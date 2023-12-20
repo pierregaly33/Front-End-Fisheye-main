@@ -3,7 +3,7 @@ let mediasInLightbox;
 function openLightbox(selectedMedia) {
     const lightbox = document.getElementById("lightbox");
     lightbox.style.display = "flex";
-    mediasInLightbox = lightbox.getElementsByClassName("media_lightbox");
+    mediasInLightbox = lightbox.getElementsByClassName("container_media_lightbox");
     for (let item of mediasInLightbox) {
         item.style.display = "none";
     }

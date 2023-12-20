@@ -22,14 +22,14 @@ function mediaTemplate(folder, data) {
         return img;
     }
 
-    function getMediaDom() {
+    function getMediaDom(nameClass) {
         if (data.image) {
             const pictureDom = getPictureDom();
-            pictureDom.setAttribute("class", "media_lightbox");
+            pictureDom.setAttribute("class", nameClass);
             return pictureDom;
         } else {
             const videoDom = getVideoDom();
-            videoDom.setAttribute("class", "media_lightbox");
+            videoDom.setAttribute("class", nameClass);
             return videoDom;
         }
     }
@@ -63,7 +63,7 @@ function mediaTemplate(folder, data) {
         headerLike.appendChild(like);
         headerLike.appendChild(imgLike);
 
-        const mediaDom = getMediaDom();
+        const mediaDom = getMediaDom("media_portfolio");
         lienLightbox.appendChild(mediaDom);
 
         p.textContent = title;
@@ -85,7 +85,7 @@ function mediaTemplate(folder, data) {
         likes,
         date,
         price,
-        getMediaDom: getMediaForPhotographerPortfolioDom,
-        getLightboxDom: getMediaDom,
+        getMediaForPhotographerPortfolioDom,
+        getMediaDom,
     };
 }
