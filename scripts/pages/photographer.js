@@ -47,6 +47,47 @@ async function ajoutLikes() {
     nombresLikes.innerText = totalLikeNumber;
 }
 
+function triParDates(tableau) {
+    function compareDate(a, b) {
+        const aDate = new Date(a.date);
+        const bDate = new Date(b.date);
+        if (aDate < bDate) {
+            return 1;
+        }
+        if (aDate > bDate) {
+            return -1;
+        }
+        return 0;
+    }
+    tableau.sort(compareDate);
+}
+
+function triParLikes(tableau) {
+    function compareLikes(a, b) {
+        if (a.likes < b.likes) {
+            return 1;
+        }
+        if (a.likes > b.likes) {
+            return -1;
+        }
+        return 0;
+    }
+    tableau.sort(compareLikes);
+}
+
+function triParTitle(tableau) {
+    function compareTitle(a, b) {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title > b.tilte) {
+            return 1;
+        }
+        return 0;
+    }
+    tableau.sort(compareTitle);
+}
+
 async function init() {
     const photographer = await getPhotographer();
     const photographerModel = photographerTemplate(photographer);
@@ -55,11 +96,12 @@ async function init() {
     photographHeader.appendChild(photographCardDom);
 
     const medias = await getMediasOfSelectedPhotographer();
+    triParLikes(medias);
+
+    const mediaMain = document.querySelector(".photograph-pictures");
 
     const template = photographerMediasTemplate(photographer, medias);
-
     const mediaDom = template.getMediasDom();
-    const mediaMain = document.querySelector(".photograph-pictures");
     mediaMain.appendChild(mediaDom);
 
     const lightboxDom = template.getMediaLightboxDom();
@@ -73,6 +115,34 @@ async function init() {
 
     const prix = document.querySelector(".prix");
     prix.innerText = photographer.price + "€/jour";
-}
 
+    const tri = document.querySelector(".tri");
+    tri.addEventListener("change", async (event) => {
+        const mediaMain = document.querySelector(".photograph-pictures");
+        mediaMain.innerHTML = "";
+        const photographer = await getPhotographer();
+        const medias = await getMediasOfSelectedPhotographer();
+        const valeurSelectionnee = event.target.value;
+
+        if (valeurSelectionnee == "popularite") {
+            triParLikes(medias);
+        }
+        if (valeurSelectionnee == "date") {
+            triParDates(medias);
+        }
+        if (valeurSelectionnee == "titre") {
+            triParTitle(medias);
+        }
+        const template = photographerMediasTemplate(photographer, medias);
+        const mediaDom = template.getMediasDom();
+        mediaMain.appendChild(mediaDom);
+
+        const lightBoxContainer = document.querySelector(".container_lightbox");
+        lightBoxContainer.innerHTML = "";
+        const lightboxDom = template.getMediaLightboxDom();
+        lightBoxContainer.appendChild(lightboxDom);
+
+        console.log(medias);
+    });
+}
 init();
