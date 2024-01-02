@@ -1,10 +1,4 @@
 //Mettre le code JavaScript lié à la page photographer.html
-const contact = document.getElementById("contact_modal");
-
-function displayModal() {
-    contact.style.display = "block";
-}
-
 async function getPhotographer() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -117,7 +111,14 @@ async function init() {
     prix.innerText = photographer.price + "€/jour";
 
     const tri = document.querySelector(".tri");
-    tri.addEventListener("change", async (event) => {
+    tri.addEventListener("change", triSelectionne());
+
+    const photographer_modal = document.querySelector(".photographer_modal");
+    photographer_modal.innerText = photographer.name;
+}
+init();
+function triSelectionne() {
+    return async (event) => {
         const mediaMain = document.querySelector(".photograph-pictures");
         mediaMain.innerHTML = "";
         const photographer = await getPhotographer();
@@ -141,8 +142,5 @@ async function init() {
         lightBoxContainer.innerHTML = "";
         const lightboxDom = template.getMediaLightboxDom();
         lightBoxContainer.appendChild(lightboxDom);
-
-        console.log(medias);
-    });
+    };
 }
-init();

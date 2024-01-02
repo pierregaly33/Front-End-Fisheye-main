@@ -13,10 +13,12 @@ function photographerTemplate(data) {
         const h3 = document.createElement("h3");
         const lien = document.createElement("a");
         const url = `./photographer.html?id=${id}`;
+        const divImg = document.createElement("div");
 
         //Affichage des éléments
         article.appendChild(lien);
-        lien.appendChild(img);
+        lien.appendChild(divImg);
+        divImg.appendChild(img);
         lien.appendChild(h2);
         lien.appendChild(h3);
         lien.appendChild(aTagline);
@@ -25,14 +27,20 @@ function photographerTemplate(data) {
         //Attributs des éléments
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
+        divImg.setAttribute("class", "container_img");
+
         h2.setAttribute("class", "nom_photographe");
         h2.setAttribute("aria-label", name);
+
         h3.setAttribute("class", "ville_pays");
         h3.setAttribute("aria-label", city + ", " + country);
+
         aTagline.setAttribute("class", "tagline");
         aTagline.setAttribute("aria-label", tagline);
+
         aPrice.setAttribute("class", "price");
         aPrice.setAttribute("aria-label", price + "€/jour");
+
         lien.setAttribute("href", url);
         lien.setAttribute("aria-label", "lien vers la page du photographe" + " " + name);
 

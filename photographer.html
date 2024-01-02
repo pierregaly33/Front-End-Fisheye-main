@@ -30,18 +30,21 @@
         <button class="contact_button" id="contact" onclick="displayModal()">Contactez-moi</button>
       </div>
     </div>
-    <label for="tri">Trier par</label>
+    <label class="label_tri" for="tri">Trier par</label>
     <select class="tri">
-      <option value="popularite">Popularité</option>
+      <option class="popularite" value="popularite">Popularité</option>
       <option value="date">Date</option>
       <option value="titre">Titre</option>
     </select>
     <div id="contact_modal">
       <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
+        <div class="header_modal">
           <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
+          <div class="name_photographer_modal">
+            <h2>Contactez-moi</h2>
+            <h2 class="photographer_modal"></h2>
+          </div>
+        </div>
         <form>
           <div>
             <label>Prénom</label>
