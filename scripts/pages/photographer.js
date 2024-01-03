@@ -119,8 +119,6 @@ async function init() {
 
     const photographer_modal = document.querySelector(".photographer_modal");
     photographer_modal.innerText = photographer.name;
-
-    changeImage();
 }
 init();
 function triSelectionne() {

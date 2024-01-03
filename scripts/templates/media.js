@@ -73,6 +73,7 @@ function mediaTemplate(folder, data) {
         imgLike.addEventListener("click", () => {
             like.textContent = likes + 1;
             updateTotalLikes();
+            imgLike.src = "assets/icons/likes.svg";
         });
 
         return section;
