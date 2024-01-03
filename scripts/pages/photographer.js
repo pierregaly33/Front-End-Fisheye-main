@@ -35,10 +35,14 @@ function calculTotalLikes(medias) {
 
 // Ajoute les likes au total des likes
 let totalLikeNumber = 0;
-async function ajoutLikes() {
-    totalLikeNumber = totalLikeNumber + 1;
-    const nombresLikes = document.querySelector(".nombres_likes");
-    nombresLikes.innerText = totalLikeNumber;
+async function updateTotalLikes() {
+    const nombreLikesPhoto = document.querySelectorAll(".nombre_likes_photo");
+    const nombresLikes = document.querySelector(".nombres_likes_total");
+    totalLikeNumber = 0;
+    nombreLikesPhoto.forEach((like) => {
+        totalLikeNumber += parseInt(like.textContent);
+    });
+    nombresLikes.textContent = totalLikeNumber;
 }
 
 function triParDates(tableau) {
@@ -104,7 +108,7 @@ async function init() {
 
     totalLikeNumber = calculTotalLikes(medias);
 
-    const nombresLikes = document.querySelector(".nombres_likes");
+    const nombresLikes = document.querySelector(".nombres_likes_total");
     nombresLikes.innerText = totalLikeNumber;
 
     const prix = document.querySelector(".prix");
@@ -115,6 +119,8 @@ async function init() {
 
     const photographer_modal = document.querySelector(".photographer_modal");
     photographer_modal.innerText = photographer.name;
+
+    changeImage();
 }
 init();
 function triSelectionne() {

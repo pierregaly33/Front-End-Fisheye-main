@@ -35,7 +35,7 @@ function mediaTemplate(folder, data) {
     }
 
     function getMediaForPhotographerPortfolioDom() {
-        const likesHeart = "assets/icons/likes.svg";
+        const likesHeart = "assets/icons/heart-regular.svg";
         const section = document.createElement("section");
         const lienLightbox = document.createElement("div");
         lienLightbox.addEventListener("click", () => {
@@ -52,7 +52,8 @@ function mediaTemplate(folder, data) {
         lienLightbox.setAttribute("class", "pictures");
         lienLightbox.setAttribute("style", "cursor:pointer");
         headerLike.setAttribute("class", "header_like");
-        like.setAttribute("class", "compteur_like");
+        like.setAttribute("class", "nombre_likes_photo");
+        imgLike.setAttribute("class", "img_like");
         imgLike.setAttribute("src", likesHeart);
         imgLike.setAttribute("style", "cursor:pointer");
 
@@ -70,8 +71,8 @@ function mediaTemplate(folder, data) {
         like.textContent = likes;
 
         imgLike.addEventListener("click", () => {
-            ajoutLikes();
             like.textContent = likes + 1;
+            updateTotalLikes();
         });
 
         return section;
