@@ -70,10 +70,19 @@ function mediaTemplate(folder, data) {
         p.textContent = title;
         like.textContent = likes;
 
+        let dejaLikes = false;
         imgLike.addEventListener("click", () => {
-            like.textContent = likes + 1;
-            updateTotalLikes();
-            imgLike.src = "assets/icons/likes.svg";
+            if (dejaLikes == false) {
+                like.textContent = likes + 1;
+                updateTotalLikes();
+                imgLike.src = "assets/icons/likes.svg";
+                dejaLikes = true;
+            } else if (dejaLikes == true) {
+                like.textContent = likes;
+                updateTotalLikes();
+                imgLike.src = "assets/icons/heart-regular.svg";
+                dejaLikes = false;
+            }
         });
 
         return section;
