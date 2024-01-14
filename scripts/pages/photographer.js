@@ -115,36 +115,35 @@ async function init() {
     prix.innerText = photographer.price + "€/jour";
 
     const tri = document.querySelector(".tri");
-    tri.addEventListener("change", triSelectionne());
+    tri.addEventListener("change", triSelectionne);
 
     const photographer_modal = document.querySelector(".photographer_modal");
     photographer_modal.innerText = photographer.name;
 }
 init();
-function triSelectionne() {
-    return async (event) => {
-        const mediaMain = document.querySelector(".photograph-pictures");
-        mediaMain.innerHTML = "";
-        const photographer = await getPhotographer();
-        const medias = await getMediasOfSelectedPhotographer();
-        const valeurSelectionnee = event.target.value;
 
-        if (valeurSelectionnee == "popularite") {
-            triParLikes(medias);
-        }
-        if (valeurSelectionnee == "date") {
-            triParDates(medias);
-        }
-        if (valeurSelectionnee == "titre") {
-            triParTitle(medias);
-        }
-        const template = photographerMediasTemplate(photographer, medias);
-        const mediaDom = template.getMediasDom();
-        mediaMain.appendChild(mediaDom);
+async function triSelectionne(event) {
+    const mediaMain = document.querySelector(".photograph-pictures");
+    mediaMain.innerHTML = "";
+    const photographer = await getPhotographer();
+    const medias = await getMediasOfSelectedPhotographer();
+    const valeurSelectionnee = event.target.value;
 
-        const lightBoxContainer = document.querySelector(".container_lightbox");
-        lightBoxContainer.innerHTML = "";
-        const lightboxDom = template.getMediaLightboxDom();
-        lightBoxContainer.appendChild(lightboxDom);
-    };
+    if (valeurSelectionnee == "popularite") {
+        triParLikes(medias);
+    }
+    if (valeurSelectionnee == "date") {
+        triParDates(medias);
+    }
+    if (valeurSelectionnee == "titre") {
+        triParTitle(medias);
+    }
+    const template = photographerMediasTemplate(photographer, medias);
+    const mediaDom = template.getMediasDom();
+    mediaMain.appendChild(mediaDom);
+
+    const lightBoxContainer = document.querySelector(".container_lightbox");
+    lightBoxContainer.innerHTML = "";
+    const lightboxDom = template.getMediaLightboxDom();
+    lightBoxContainer.appendChild(lightboxDom);
 }

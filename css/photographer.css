@@ -237,14 +237,14 @@ form input {
 #previous {
     position: absolute;
     top: 45%;
-    left: 14%;
+    left: 13%;
     cursor: pointer;
 }
 
 #next {
     position: absolute;
     top: 45%;
-    right: 14%;
+    right: 13%;
     cursor: pointer;
 }
 
@@ -319,4 +319,8 @@ form input {
 .popularite {
     height: 200px;
     width: 200px;
+}
+
+.dropdown_label {
+    display: flex;
 }

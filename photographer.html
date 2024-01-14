@@ -30,12 +30,22 @@
         <button class="contact_button" id="contact" onclick="displayModal()">Contactez-moi</button>
       </div>
     </div>
-    <label class="label_tri" for="tri">Trier par</label>
-    <select class="tri">
-      <option value="popularite">Popularité</option>
-      <option value="date">Date</option>
-      <option value="titre">Titre</option>
-    </select>
+    <div class="dropdown_label">
+      <label class="label_tri" for="tri">Trier par</label>
+      <div class="dropdown">
+        <button class="button_dropdown" onclick="dropdownToggle()">
+          Popularité
+        </button>
+        <ul class="dropdown_div" data-selectedvalue="popularity">
+          <li data-value="popularity" onclick="onSelected(event)">Popularité
+          </li>
+          <li data-value="date" onclick="onSelected(event)">Date
+          </li>
+          <li data-value="title" onclick="onSelected(event)">Titre
+          </li>
+        </ul>
+      </div>
+    </div>
     <div id="contact_modal">
       <div class="modal">
         <div class="header_modal">
@@ -75,6 +85,7 @@
   <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/templates/lightbox.js"></script>
+  <script src="/scripts/templates/dropdown.js"></script>
 </body>
 
 </html>
