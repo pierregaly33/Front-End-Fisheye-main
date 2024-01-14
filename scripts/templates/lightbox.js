@@ -20,7 +20,6 @@ function openLightbox(selectedMedia) {
         return index;
     }
     indexGlobal = findIndex();
-    console.log(indexGlobal);
 
     const selectedPictureOrVideo = lightbox.querySelector(`[data-id="${selectedMediaId}"]`);
     selectedPictureOrVideo.style.display = "block";
@@ -29,7 +28,6 @@ function openLightbox(selectedMedia) {
 function close() {
     const lightbox = document.getElementById("lightbox");
     lightbox.style.display = "none";
-    console.log("close");
 }
 
 const closeButton = document.getElementById("close");

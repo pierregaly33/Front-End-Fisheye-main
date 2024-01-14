@@ -31,10 +31,36 @@ function dropdownToggle() {
     }
 }
 
-function onSelected(event) {
+async function onSelected(event) {
     dropdownClose();
 
     buttonDropdown.innerText = event.target.innerText;
 
     dropdownDiv.dataset.selectedvalue = event.target.dataset.value;
+    await triSelectionne(dropdownDiv.dataset.selectedvalue);
+}
+
+async function triSelectionne(selectedValue) {
+    const mediaMain = document.querySelector(".photograph-pictures");
+    mediaMain.innerHTML = "";
+    const photographer = await getPhotographer();
+    const medias = await getMediasOfSelectedPhotographer();
+
+    if (selectedValue == "popularity") {
+        triParLikes(medias);
+    }
+    if (selectedValue == "date") {
+        triParDates(medias);
+    }
+    if (selectedValue == "title") {
+        triParTitle(medias);
+    }
+    const template = photographerMediasTemplate(photographer, medias);
+    const mediaDom = template.getMediasDom();
+    mediaMain.appendChild(mediaDom);
+
+    const lightBoxContainer = document.querySelector(".container_lightbox");
+    lightBoxContainer.innerHTML = "";
+    const lightboxDom = template.getMediaLightboxDom();
+    lightBoxContainer.appendChild(lightboxDom);
 }

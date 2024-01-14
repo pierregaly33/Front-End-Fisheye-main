@@ -16,10 +16,8 @@ async function getMediasOfSelectedPhotographer() {
 
     const mediaData = await fetch("../data/photographers.json").then((data) => data.json());
     const media = mediaData.media;
-    console.log(media);
 
     const mediaPhotographer = media.filter((media) => media.photographerId == id);
-    console.log(mediaPhotographer);
     return mediaPhotographer;
 }
 
@@ -114,36 +112,7 @@ async function init() {
     const prix = document.querySelector(".prix");
     prix.innerText = photographer.price + "€/jour";
 
-    const tri = document.querySelector(".tri");
-    tri.addEventListener("change", triSelectionne);
-
     const photographer_modal = document.querySelector(".photographer_modal");
     photographer_modal.innerText = photographer.name;
 }
 init();
-
-async function triSelectionne(event) {
-    const mediaMain = document.querySelector(".photograph-pictures");
-    mediaMain.innerHTML = "";
-    const photographer = await getPhotographer();
-    const medias = await getMediasOfSelectedPhotographer();
-    const valeurSelectionnee = event.target.value;
-
-    if (valeurSelectionnee == "popularite") {
-        triParLikes(medias);
-    }
-    if (valeurSelectionnee == "date") {
-        triParDates(medias);
-    }
-    if (valeurSelectionnee == "titre") {
-        triParTitle(medias);
-    }
-    const template = photographerMediasTemplate(photographer, medias);
-    const mediaDom = template.getMediasDom();
-    mediaMain.appendChild(mediaDom);
-
-    const lightBoxContainer = document.querySelector(".container_lightbox");
-    lightBoxContainer.innerHTML = "";
-    const lightboxDom = template.getMediaLightboxDom();
-    lightBoxContainer.appendChild(lightboxDom);
-}
