@@ -6,6 +6,8 @@ let ouvert = false;
 dropdownClose();
 
 function dropdownOpen() {
+    buttonDropdown.classList.add("dropdown_open");
+
     dropdownDiv.style.display = "block";
     ouvert = true;
 
@@ -19,6 +21,8 @@ function dropdownOpen() {
 }
 
 function dropdownClose() {
+    buttonDropdown.classList.remove("dropdown_open");
+
     dropdownDiv.style.display = "none";
     ouvert = false;
 }
@@ -35,6 +39,10 @@ async function onSelected(event) {
     dropdownClose();
 
     buttonDropdown.innerText = event.target.innerText;
+    const img = document.createElement("img");
+    buttonDropdown.appendChild(img);
+    img.setAttribute("src", "assets/icons/expand_more-24px 4.svg");
+    img.setAttribute("class", "dropdown_arrow");
 
     dropdownDiv.dataset.selectedvalue = event.target.dataset.value;
     await triSelectionne(dropdownDiv.dataset.selectedvalue);

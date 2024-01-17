@@ -55,7 +55,7 @@
 }
 
 .header_modal h2 {
-    font-size: 64px;
+    font-size: 50px;
     font-weight: normal;
     text-align: start;
     margin: 0;
@@ -74,7 +74,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 23px;
 }
 
 form div {
@@ -106,6 +106,7 @@ form input {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 110px;
 
 }
 
@@ -323,6 +324,8 @@ form input {
 
 .dropdown_label {
     display: flex;
+    margin-top: 30px;
+    position: absolute;
 }
 
 .button_dropdown {
@@ -334,7 +337,7 @@ form input {
     display: flex;
     font-weight: 700;
     font-size: 18px;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     align-items: center;
@@ -370,4 +373,12 @@ form input {
 
 .dropdown_div li:hover {
     cursor: pointer;
+}
+
+.dropdown_open {
+    border-radius: 5px 5px 0 0;
+}
+
+.dropdown_open img {
+    transform: rotate(180deg);
 }
