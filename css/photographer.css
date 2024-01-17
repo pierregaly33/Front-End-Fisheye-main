@@ -316,11 +316,58 @@ form input {
     background: rgba(196, 196, 196, 0.4)
 }
 
-.popularite {
-    height: 200px;
-    width: 200px;
+.dropdown {
+    width: 170px;
+    color: white;
 }
 
 .dropdown_label {
     display: flex;
+}
+
+.button_dropdown {
+    padding: 20px;
+    background: #911C1C;
+    margin-left: 25px;
+    width: 100%;
+    color: white;
+    display: flex;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown_div {
+    background: #911C1C;
+    margin: 0;
+    padding: 0;
+    margin-left: 25px;
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown_div li {
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+
+}
+
+.dropdown_div li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 150px;
+    height: 1px;
+    background: white;
+}
+
+.dropdown_div li:hover {
+    cursor: pointer;
 }
