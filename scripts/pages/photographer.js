@@ -113,6 +113,8 @@ async function init() {
     prix.innerText = photographer.price + "€/jour";
 
     const photographer_modal = document.querySelector(".photographer_modal");
+    const namePhotographerModal = document.querySelector(".name_photographer_modal");
+    namePhotographerModal.setAttribute("aria-labal", `contact me ${photographer.name}`);
     photographer_modal.innerText = photographer.name;
 }
 init();

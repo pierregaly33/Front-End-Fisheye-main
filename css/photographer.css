@@ -219,15 +219,28 @@ form input {
     align-items: center;
 }
 
-.container_lightbox img {
+.container_media_lightbox {
+    flex-direction: column;
     width: 1050px;
     height: 815px;
+    justify-content: center;
+}
+
+.container_media_lightbox p {
+    color: #901C1C;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.container_lightbox img {
+    height: 80%;
+    width: 100%;
     object-fit: cover;
 }
 
 .container_lightbox video {
-    width: 1050px;
-    height: 815px;
+    width: 100%;
+    height: 80%;
 }
 
 .video {
@@ -252,7 +265,7 @@ form input {
 #close {
     position: absolute;
     top: 2%;
-    right: 13%;
+    right: 11%;
     cursor: pointer;
 }
 

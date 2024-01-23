@@ -7,6 +7,7 @@ dropdownClose();
 
 function dropdownOpen() {
     buttonDropdown.classList.add("dropdown_open");
+    buttonDropdown.setAttribute("aria-expanded", "true");
 
     dropdownDiv.style.display = "block";
     ouvert = true;
@@ -22,6 +23,7 @@ function dropdownOpen() {
 
 function dropdownClose() {
     buttonDropdown.classList.remove("dropdown_open");
+    buttonDropdown.setAttribute("aria-expanded", "false");
 
     dropdownDiv.style.display = "none";
     ouvert = false;
@@ -45,6 +47,9 @@ async function onSelected(event) {
     img.setAttribute("class", "dropdown_arrow");
 
     dropdownDiv.dataset.selectedvalue = event.target.dataset.value;
+    dropdownDivLi.forEach((element) => {
+        element.setAttribute("aria-selected", element == event.target);
+    });
     await triSelectionne(dropdownDiv.dataset.selectedvalue);
 }
 

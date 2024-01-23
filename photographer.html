@@ -10,13 +10,13 @@
 </head>
 
 <body>
-  <div class="lightbox" id="lightbox" style="display: none;">
+  <div class="lightbox" id="lightbox" style="display: none;" role="dialog" aria-label="image closeup view">
     <div class="container_lightbox">
     </div>
     <div class="commands">
-      <img id="close" src="./assets/icons/close_lightbox.svg" alt="fermeture lightbox">
-      <img id="previous" src="./assets/icons/preview.svg" alt="image précédante">
-      <img id="next" src="./assets/icons/next.svg" alt="image suivante">
+      <img id="close" src="./assets/icons/close_lightbox.svg" alt="fermeture lightbox" aria-label="Close dialog">
+      <img id="previous" src="./assets/icons/preview.svg" alt="image précédante" aria-label="Previous image">
+      <img id="next" src="./assets/icons/next.svg" alt="image suivante" aria-label="Next image">
     </div>
   </div>
   <header>
@@ -27,30 +27,32 @@
   <main id="main">
     <div class="photograph-header">
       <div class="button_container">
-        <button class="contact_button" id="contact" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" id="contact" onclick="displayModal()"
+          aria-label="Contactez-moi">Contactez-moi</button>
       </div>
     </div>
     <div class="dropdown_label">
-      <label class="label_tri" for="tri">Trier par</label>
+      <label class="label_tri">Trier par</label>
       <div class="dropdown">
-        <button class="button_dropdown" onclick="dropdownToggle()">
+        <button class="button_dropdown" onclick="dropdownToggle()" role="button" aria-haspopup="listbox"
+          aria-expanded="false">
           Popularité
           <img src="assets/icons/expand_more-24px 4.svg" alt="" class="dropdown_arrow">
         </button>
         <ul class="dropdown_div" data-selectedvalue="popularity">
-          <li data-value="popularity" onclick="onSelected(event)">Popularité
+          <li data-value="popularity" onclick="onSelected(event)" role="listbox">Popularité
           </li>
-          <li data-value="date" onclick="onSelected(event)">Date
+          <li data-value="date" onclick="onSelected(event)" role="listbox">Date
           </li>
-          <li data-value="title" onclick="onSelected(event)">Titre
+          <li data-value="title" onclick="onSelected(event)" role="listbox">Titre
           </li>
         </ul>
       </div>
     </div>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog">
       <div class="modal">
         <div class="header_modal">
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" role="button" onclick="closeModal()" />
           <div class="name_photographer_modal">
             <h2>Contactez-moi</h2>
             <h2 class="photographer_modal"></h2>
@@ -59,15 +61,15 @@
         <form>
           <div>
             <label>Prénom</label>
-            <input type="text" aria-label="First name" required>
+            <input type="text" aria-label="First name" role="textbox" aria-label="First name" required>
             <label>Nom</label>
-            <input type="text" aria-label="Last name" required />
+            <input type="text" aria-label="Last name" role="textbox" aria-label="Last name" required />
             <label>Email</label>
-            <input type="email" aria-label="Email" required />
+            <input type="email" aria-label="Email" role="textbox" aria-label="Email" required />
             <label>Votre message</label>
-            <input type="text" aria-label="Your message" required />
+            <input type="text" aria-label="Your message" role="textbox" aria-label="Your message" required />
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" type="submit">Envoyer</button>
         </form>
       </div>
     </div>

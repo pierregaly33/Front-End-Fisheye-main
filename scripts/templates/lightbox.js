@@ -22,7 +22,7 @@ function openLightbox(selectedMedia) {
     indexGlobal = findIndex();
 
     const selectedPictureOrVideo = lightbox.querySelector(`[data-id="${selectedMediaId}"]`);
-    selectedPictureOrVideo.style.display = "block";
+    selectedPictureOrVideo.style.display = "flex";
 }
 
 function close() {
@@ -44,7 +44,7 @@ function previous() {
     }
 
     const mediaPrecedant = mediasInLightbox[indexGlobal];
-    mediaPrecedant.style.display = "block";
+    mediaPrecedant.style.display = "flex";
 }
 
 function next() {
@@ -58,7 +58,7 @@ function next() {
     }
 
     const mediaSuivant = mediasInLightbox[indexGlobal];
-    mediaSuivant.style.display = "block";
+    mediaSuivant.style.display = "flex";
 }
 const previousButton = document.getElementById("previous");
 previousButton.addEventListener("click", previous);
