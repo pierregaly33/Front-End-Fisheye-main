@@ -22,7 +22,7 @@ async function getMediasOfSelectedPhotographer() {
 }
 
 function calculTotalLikes(medias) {
-    total = 0;
+    let total = 0;
     for (let i = 0; i < medias.length; i++) {
         let media = medias[i];
         let likes = media.likes;

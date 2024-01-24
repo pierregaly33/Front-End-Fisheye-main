@@ -79,16 +79,23 @@ function photographerTemplate(data) {
         //Attributs des éléments
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
+
         h1.setAttribute("class", "nom_fiche_photographer");
         h1.setAttribute("aria-label", name);
+
         h2.setAttribute("class", "origine_fiche_photographer");
         h2.setAttribute("aria-label", city + ", " + country);
+
         aTagline.setAttribute("class", "tagline_fiche_photographer");
         aTagline.setAttribute("aria-label", tagline);
+
         aPrice.setAttribute("class", "prix_fiche_photographer");
         aPrice.setAttribute("aria-label", price + "€/jour");
+
         button.setAttribute("aria-label", "Contactez-moi");
+
         photo.setAttribute("class", "photo_photographer");
+
         header.setAttribute("class", "presentation_photographer");
 
         //Texte afficher
