@@ -14,7 +14,7 @@ async function getMediasOfSelectedPhotographer() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
-    const mediaData = await fetch("../data/photographers.json").then((data) => data.json());
+    const mediaData = await fetch("./data/photographers.json").then((data) => data.json());
     const media = mediaData.media;
 
     const mediaPhotographer = media.filter((media) => media.photographerId == id);
