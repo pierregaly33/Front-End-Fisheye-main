@@ -105,7 +105,7 @@ form input {
     border-radius: 5px;
 }
 
-.your_message {
+#your_message {
     height: 150px;
 }
 
