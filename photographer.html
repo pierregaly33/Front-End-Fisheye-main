@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -21,7 +21,7 @@
   </div>
   <header>
     <a href="/">
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo fisheye" />
     </a>
   </header>
   <main id="main">
@@ -52,7 +52,7 @@
     <div id="contact_modal" role="dialog">
       <div class="modal">
         <div class="header_modal">
-          <img src="assets/icons/close.svg" role="button" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" role="button" onclick="closeModal()" alt="close modal" />
           <div class="name_photographer_modal">
             <h2>Contactez-moi</h2>
             <h2 class="photographer_modal"></h2>
@@ -60,14 +60,14 @@
         </div>
         <form>
           <div>
-            <label>Prénom</label>
-            <input id="firstName" type="text" aria-label="First name" role="textbox" aria-label="First name" required>
-            <label>Nom</label>
-            <input id="lastName" type="text" aria-label="Last name" role="textbox" aria-label="Last name" required />
-            <label>Email</label>
-            <input id="email" type="email" aria-label="Email" role="textbox" aria-label="Email" required />
-            <label>Votre message</label>
-            <input class="your_message" type="text" aria-label="Your message" role="textbox" aria-label="Your message"
+            <label for="firstName">Prénom</label>
+            <input id="firstName" name="firstName" type="text" aria-label="First name" role="textbox" required>
+            <label for="lastName">Nom</label>
+            <input id="lastName" name="" lastName type="text" aria-label="Last name" role="textbox" required />
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" aria-label="Email" role="textbox" required />
+            <label for="Your message">Votre message</label>
+            <input class="your_message" name="Your message" type="text" aria-label="Your message" role="textbox"
               required />
           </div>
           <button class="button_form">Envoyer</button>
