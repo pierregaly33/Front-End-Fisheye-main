@@ -23,6 +23,27 @@ function openLightbox(selectedMedia) {
 
     const selectedPictureOrVideo = lightbox.querySelector(`[data-id="${selectedMediaId}"]`);
     selectedPictureOrVideo.style.display = "flex";
+
+    document.addEventListener("keydown", (event) => {
+        let flecheGauche = event.code;
+        if (flecheGauche == "ArrowLeft") {
+            previous();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        let flecheDroite = event.code;
+        if (flecheDroite == "ArrowRight") {
+            next();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        let echap = event.code;
+        if (echap == "Escape") {
+            close();
+        }
+    });
 }
 
 function close() {
@@ -65,24 +86,3 @@ previousButton.addEventListener("click", previous);
 
 const nextButton = document.getElementById("next");
 nextButton.addEventListener("click", next);
-
-document.addEventListener("keydown", (event) => {
-    let flecheGauche = event.code;
-    if (flecheGauche == "ArrowLeft") {
-        previous();
-    }
-});
-
-document.addEventListener("keydown", (event) => {
-    let flecheDroite = event.code;
-    if (flecheDroite == "ArrowRight") {
-        next();
-    }
-});
-
-document.addEventListener("keydown", (event) => {
-    let echap = event.code;
-    if (echap == "Escape") {
-        close();
-    }
-});

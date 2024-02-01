@@ -65,7 +65,6 @@ function photographerTemplate(data) {
         const photo = document.createElement("div");
         const photographHeader = document.querySelector(".photograph-header");
         const contactButton = document.querySelector(".button_container");
-        console.log();
 
         //Affichage des éléments
         photographHeader.appendChild(photo);

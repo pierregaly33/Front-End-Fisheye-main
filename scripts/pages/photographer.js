@@ -3,7 +3,7 @@ async function getPhotographer() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
     // Récupere tous les photographes
-    const photographersData = await fetch("../data/photographers.json").then((data) => data.json());
+    const photographersData = await fetch("./data/photographers.json").then((data) => data.json());
     const photographers = photographersData.photographers;
     // Récupere le photographe demandé
     const photographer = photographers.find((photographer) => photographer.id == id);
