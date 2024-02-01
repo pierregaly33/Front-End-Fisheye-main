@@ -25,22 +25,11 @@ function openLightbox(selectedMedia) {
     selectedPictureOrVideo.style.display = "flex";
 
     document.addEventListener("keydown", (event) => {
-        let flecheGauche = event.code;
-        if (flecheGauche == "ArrowLeft") {
+        if (event.code == "ArrowLeft") {
             previous();
-        }
-    });
-
-    document.addEventListener("keydown", (event) => {
-        let flecheDroite = event.code;
-        if (flecheDroite == "ArrowRight") {
+        } else if (event.code == "ArrowRight") {
             next();
-        }
-    });
-
-    document.addEventListener("keydown", (event) => {
-        let echap = event.code;
-        if (echap == "Escape") {
+        } else if (event.code == "Escape") {
             close();
         }
     });
