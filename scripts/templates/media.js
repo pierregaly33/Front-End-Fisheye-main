@@ -57,6 +57,7 @@ function mediaTemplate(folder, data) {
         imgLike.setAttribute("src", likesHeart);
         imgLike.setAttribute("alt", "likes");
         imgLike.setAttribute("style", "cursor:pointer");
+        section.setAttribute("tabindex", "0");
 
         section.appendChild(lienLightbox);
         section.appendChild(div);
