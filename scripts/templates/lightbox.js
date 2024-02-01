@@ -23,16 +23,6 @@ function openLightbox(selectedMedia) {
 
     const selectedPictureOrVideo = lightbox.querySelector(`[data-id="${selectedMediaId}"]`);
     selectedPictureOrVideo.style.display = "flex";
-
-    document.addEventListener("keydown", (event) => {
-        if (event.code == "ArrowLeft") {
-            previous();
-        } else if (event.code == "ArrowRight") {
-            next();
-        } else if (event.code == "Escape") {
-            close();
-        }
-    });
 }
 
 function close() {
@@ -75,3 +65,13 @@ previousButton.addEventListener("click", previous);
 
 const nextButton = document.getElementById("next");
 nextButton.addEventListener("click", next);
+
+document.addEventListener("keydown", (event) => {
+    if (event.code == "ArrowLeft") {
+        previous();
+    } else if (event.code == "ArrowRight") {
+        next();
+    } else if (event.code == "Escape") {
+        close();
+    }
+});

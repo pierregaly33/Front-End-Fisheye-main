@@ -41,6 +41,11 @@ function mediaTemplate(folder, data) {
         lienLightbox.addEventListener("click", () => {
             openLightbox(data);
         });
+        lienLightbox.addEventListener("keydown", (event) => {
+            if (event.code == "Enter") {
+                openLightbox(data);
+            }
+        });
         const div = document.createElement("div");
         const p = document.createElement("p");
         const headerLike = document.createElement("div");
@@ -48,21 +53,28 @@ function mediaTemplate(folder, data) {
         const imgLike = document.createElement("img");
 
         div.setAttribute("class", "card_media_footer");
+
         p.setAttribute("class", "card_media_title");
+
         lienLightbox.setAttribute("class", "pictures");
         lienLightbox.setAttribute("style", "cursor:pointer");
+        lienLightbox.setAttribute("tabindex", "0");
+
         headerLike.setAttribute("class", "header_like");
+
         like.setAttribute("class", "nombre_likes_photo");
+
         imgLike.setAttribute("class", "img_like");
         imgLike.setAttribute("src", likesHeart);
         imgLike.setAttribute("alt", "likes");
         imgLike.setAttribute("style", "cursor:pointer");
-        section.setAttribute("tabindex", "0");
 
         section.appendChild(lienLightbox);
         section.appendChild(div);
+
         div.appendChild(p);
         div.appendChild(headerLike);
+
         headerLike.appendChild(like);
         headerLike.appendChild(imgLike);
 

@@ -14,11 +14,9 @@
     <div class="container_lightbox">
     </div>
     <div class="commands">
-      <img id="close" tabindex="1" src="./assets/icons/close_lightbox.svg" alt="fermeture lightbox"
-        aria-label="Close dialog">
-      <img id="previous" tabindex="1" src="./assets/icons/preview.svg" alt="image précédante"
-        aria-label="Previous image">
-      <img id="next" tabindex="1" src="./assets/icons/next.svg" alt="image suivante" aria-label="Next image">
+      <img id="close" src="./assets/icons/close_lightbox.svg" alt="fermeture lightbox" aria-label="Close dialog">
+      <img id="previous" src="./assets/icons/preview.svg" alt="image précédante" aria-label="Previous image">
+      <img id="next" src="./assets/icons/next.svg" alt="image suivante" aria-label="Next image">
     </div>
   </div>
   <header>
@@ -42,11 +40,11 @@
           <img src="assets/icons/expand_more-24px 4.svg" alt="" class="dropdown_arrow">
         </button>
         <ul class="dropdown_div" data-selectedvalue="popularity">
-          <li data-value="popularity" onclick="onSelected(event)" role="listbox">Popularité
+          <li data-value="popularity" tabindex="0" onclick="onSelected(event)" role="listbox">Popularité
           </li>
-          <li data-value="date" onclick="onSelected(event)" role="listbox">Date
+          <li data-value="date" tabindex="0" onclick="onSelected(event)" role="listbox">Date
           </li>
-          <li data-value="title" onclick="onSelected(event)" role="listbox">Titre
+          <li data-value="title" tabindex="0" onclick="onSelected(event)" role="listbox">Titre
           </li>
         </ul>
       </div>
