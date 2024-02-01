@@ -12,7 +12,7 @@ function getFormData() {
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let email = document.getElementById("email").value;
-    let yourMessage = document.querySelector(".your_message").value;
+    let yourMessage = document.querySelector("#your_message").value;
     let data = { firstName, lastName, email, yourMessage };
     resetFormData();
     return data;
@@ -22,7 +22,7 @@ function resetFormData() {
     document.getElementById("firstName").value = "";
     document.getElementById("lastName").value = "";
     document.getElementById("email").value = "";
-    document.querySelector(".your_message").value = "";
+    document.querySelector("#your_message").value = "";
 }
 
 const boutonForm = document.querySelector(".button_form");
